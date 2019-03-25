@@ -1,0 +1,2 @@
+This project is Arduino based Fire Fighting Robot. It can automatically sense the fire. After detecting fire, it provides an alert by buzzer alarm and LED on.
+Then it starts water pumping to put off fire.
