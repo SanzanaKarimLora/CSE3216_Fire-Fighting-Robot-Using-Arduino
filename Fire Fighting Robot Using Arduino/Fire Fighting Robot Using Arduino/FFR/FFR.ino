@@ -36,8 +36,7 @@ void loop()
   fire_detected_S = digitalRead(fire_sensorForward);
   fire_detected_R = digitalRead(fire_sensorRight);
   
-  if (fire_detected_L == 1 || fire_detected_S ==1 || fire_detected_R == 1)
-  {
+  
     if(fire_detected_L == 1)
     {
        Serial.println("FIRE IS DETECTED IN LEFT SIDE!!!!! PLEASE TAKE ACTION TO PUT OFF FIRE");
@@ -48,7 +47,7 @@ void loop()
        delay(200);
     }
 
-    if(fire_detected_S == 1)
+    else if(fire_detected_S == 1)
     {
        Serial.println("FIRE IS DETECTED IN FRONT SIDE!!!!! PLEASE TAKE ACTION TO PUT OFF FIRE");
        digitalWrite(buzzer, HIGH);
@@ -58,7 +57,7 @@ void loop()
        delay(200);
     }
 
-    if(fire_detected_R == 1)
+    else if(fire_detected_R == 1)
     {
        Serial.println("FIRE IS DETECTED IN RIGHT SIDE!!!!! PLEASE TAKE ACTION TO PUT OFF FIRE");
        digitalWrite(buzzer, HIGH);
@@ -68,7 +67,15 @@ void loop()
        delay(200);
     }
    
-  }
+    else if(fire_detected_L == 1 && fire_detected_R == 1 && fire_detected_S == 1)
+    {
+       Serial.println("FIRE IS DETECTED IN ALL SIDES!!!!! PLEASE TAKE ACTION TO PUT OFF FIRE");
+       digitalWrite(buzzer, HIGH);
+       digitalWrite(LED, HIGH);
+       delay(200);
+       digitalWrite(LED, LOW);
+       delay(200);
+    }
 
   else
   {
